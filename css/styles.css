@@ -4,6 +4,7 @@
   --logo-first-color: #2196f3;
   --logo-second-color: #000000;
   --header-link-accent-color: #2196f3;
+  --header-link-after-accent-background-color: #2196f3;
   --header-contacts-link-color: #757575;
   --header-contacts-link-accent-color: #2196f3;
   --header-border-bottom-color: #ececec;
@@ -25,6 +26,8 @@
   --hero-btn-shadow-color: rgba(0, 0, 0, 0.15);
   --peculiarities-decoration-background-color: #f5f4fa;
   --peculiarities-text-color: #757575;
+  --activity-item-box-background-color: rgba(47, 48, 58, 0.8);
+  --activity-item-title-color: #ffffff;
   --team-background-color: #f5f4fa;
   --team-description-background-color: #ffffff;
   --team-link-background-color: #ffffff;
@@ -141,10 +144,29 @@ body {
   line-height: calc(16 / 14);
   letter-spacing: 0.02em;
   color: currentColor;
+  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.header-link::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  display: block;
+  position: absolute;
+  bottom: -28px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .header-link:hover,
 .header-link:focus {
   color: var(--header-link-accent-color);
+}
+
+.header-link:hover::after,
+.header-link:focus::after {
+  background-color: var(--header-link-after-accent-background-color);
 }
 
 .header-contacts-list {
@@ -163,6 +185,7 @@ body {
   color: var(--header-contacts-link-color);
   display: flex;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-contacts-icon {
   fill: currentColor;
@@ -211,6 +234,7 @@ body {
   font-size: 14px;
   line-height: calc(24 / 14);
   letter-spacing: 0.03em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-maps-link {
   color: var(--footer-maps-link-color);
@@ -255,6 +279,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--footer-socials-link-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-socials-icon {
   fill: currentColor;
@@ -314,6 +339,8 @@ body {
   padding: 10px 32px;
   margin-left: auto;
   margin-right: auto;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -390,6 +417,29 @@ body {
   justify-content: space-between;
 }
 
+.activity-item {
+  position: relative;
+}
+
+.activity-item-box {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--activity-item-box-background-color);
+  position: absolute;
+  bottom: 0;
+}
+
+.activity-item-title {
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--activity-item-title-color);
+}
 /* --------------------TEAM------------------ */
 
 .team {
@@ -460,6 +510,8 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--team-link-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-socials-icon {
@@ -494,6 +546,8 @@ body {
   border: 1px solid var(--clients-link-border-color);
   border-radius: 4px;
   color: var(--clients-link-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-item-icon {
@@ -544,6 +598,9 @@ body {
   padding: 6px 22px;
   border: 0 outset currentColor;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-btn:hover,
@@ -569,6 +626,7 @@ body {
 
 .portfolio-projects-item-link {
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-projects-item-link:hover {
